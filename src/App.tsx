@@ -77,28 +77,32 @@ const Main: FC = () => {
 
   return <>
   <Row justify="center" align='middle' style={{height: '100vh'}}>
-    <Col xs={8}>
+    <Col xs={24} md={12}>
     <div className='paper'>
       <Typography.Title level={3}>Neose Mini Control Interface</Typography.Title>
-        <Row>
-          <Col>
-          <div className='inner-col'>
-            <span>LED: </span><Switch checked={ledState} onChange={(checked) => {switchLed(checked)}}></Switch>
-          </div>
+        <Row justify='start'>
+          <Col xs={8} className='col-with-margin' style={{textAlign: 'right'}}>
+              <span style={{marginRight: '5px'}}>LED <i>(light)</i>:</span>
+          </Col>
+          <Col style={{textAlign: 'left'}}>
+            <Switch checked={lcsState} onChange={(checked) => {switchLed(checked)}}></Switch>
           </Col>
         </Row>
-        <Row>
-          <Col>
-          <div className='inner-col'>
-            <span>LCS: </span><Switch checked={lcsState} onChange={(checked) => {switchLcs(checked)}}></Switch>
-          </div>
+        <Row justify='start'>
+          <Col xs={8} className='col-with-margin' style={{textAlign: 'right'}}>
+              <span style={{marginRight: '5px'}}>LCS <i>(polarizer)</i>:</span>
           </Col>
+          <Col style={{textAlign: 'left'}}>
+            <Switch checked={lcsState} onChange={(checked) => {switchLcs(checked)}}></Switch>
+          </Col>
+          <Col ><span style={{marginLeft: '5px'}}><i>Currently in <b>{lcsState ? "TM" : "TE"}</b> mode</i></span></Col>
         </Row>
-        <Row>
-          <Col>
-          <div className='inner-col'>
-            <span>FAN: </span><Switch checked={fanState} onChange={(checked) => {switchFan(checked)}}></Switch>
-          </div>
+        <Row justify='start'>
+          <Col xs={8} className='col-with-margin' style={{textAlign: 'right'}}>
+              <span style={{marginRight: '5px'}}>FAN <i>(cooling)</i>:</span>
+          </Col>
+          <Col style={{textAlign: 'left'}}>
+            <Switch checked={lcsState} onChange={(checked) => {switchFan(checked)}}></Switch>
           </Col>
         </Row>
       </div>
